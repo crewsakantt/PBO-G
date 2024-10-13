@@ -11,7 +11,9 @@ public class Main {
             System.out.println("1. Tambah Item");
             System.out.println("2. Hapus Item");
             System.out.println("3. Tampilkan Inventaris");
-            System.out.println("4. Keluar");
+            System.out.println("4. Cari Item Berdasarkan Nama");
+            System.out.println("5. Tampilkan Item Terlaris");
+            System.out.println("6. Keluar");
             System.out.print("Masukkan pilihan Anda: ");
             
             int pilihan = getIntegerInput(scanner);
@@ -34,6 +36,14 @@ public class Main {
                     inventory.tampilkanItem();
                     break;
                 case 4:
+                    System.out.print("Masukkan nama item yang ingin dicari: ");
+                    String namaItem = scanner.nextLine();
+                    ((Inventory) inventory).cariItemBerdasarkanNama(namaItem);
+                    break;
+                case 5:
+                    ((Inventory) inventory).tampilkanItemTerlaris();
+                    break;
+                case 6:
                     System.out.println("Terima kasih telah menggunakan program ini.");
                     scanner.close();
                     return;
