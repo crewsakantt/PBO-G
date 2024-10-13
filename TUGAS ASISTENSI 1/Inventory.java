@@ -61,6 +61,7 @@ public class Inventory implements Storable {
             int jumlah = itemMap.get(nama);
             String genre = genreMap.get(nama);
             System.out.println(nama + " ditemukan. Jumlah: " + jumlah + " (Genre: " + genre + ")");
+          
         } else {
             System.out.println(nama + " tidak ditemukan dalam inventaris.");
         }
