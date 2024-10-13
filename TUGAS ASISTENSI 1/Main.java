@@ -25,7 +25,17 @@ public class Main {
                     String itemTambah = scanner.nextLine();
                     System.out.print("Masukkan jumlah: ");
                     int jumlah = getIntegerInput(scanner);
-                    inventory.tambahItem(itemTambah, jumlah);
+                    
+                    System.out.print("Apakah Anda ingin memasukkan genre? (ya/tidak): ");
+                    String includeGenre = scanner.nextLine().trim().toLowerCase();
+                    
+                    if (includeGenre.equals("ya")) {
+                        System.out.print("Masukkan genre: ");
+                        String genre = scanner.nextLine(); // Minta input genre
+                        inventory.tambahItem(itemTambah, jumlah, genre); // Panggil metode dengan genre
+                    } else {
+                        inventory.tambahItem(itemTambah, jumlah); // Panggil metode tanpa genre
+                    }
                     break;
                 case 2:
                     System.out.print("Masukkan nama item yang akan dihapus: ");
