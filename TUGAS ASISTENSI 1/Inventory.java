@@ -42,4 +42,31 @@ public class Inventory implements Storable {
             System.out.println("Total item: " + totalItem);
         }
     }
+
+    public void cariItemBerdasarkanNama(String nama) {
+        if (itemMap.containsKey(nama)) {
+            int jumlah = itemMap.get(nama);
+            System.out.println(nama + " ditemukan. Jumlah: " + jumlah);
+        } else {
+            System.out.println(nama + " tidak ditemukan dalam inventaris.");
+        }
+    }
+
+    public void tampilkanItemTerlaris() {
+        if (itemMap.isEmpty()) {
+            System.out.println("Inventaris kosong.");
+            return;
+        }
+        String terlaris = null;
+        int maxJumlah = 0;
+        for (Map.Entry<String, Integer> entry : itemMap.entrySet()) {
+            if (entry.getValue() > maxJumlah) {
+                terlaris = entry.getKey();
+                maxJumlah = entry.getValue();
+            }
+        }
+        if (terlaris != null) {
+            System.out.println("Item terlaris: " + terlaris + ", Jumlah: " + maxJumlah);
+        }
+    }
 }
